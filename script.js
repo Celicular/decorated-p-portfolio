@@ -20,6 +20,23 @@ if (savedTheme) {
 
 themeToggle.addEventListener('click', toggleTheme);
 
+// Intersection Observer for animations
+const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.2
+};
+
+function handleIntersect(entries, observer) {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('animate');
+        }
+    });
+}
+
+const observer = new IntersectionObserver(handleIntersect, observerOptions);
+
 // Wait for all content to load
 window.addEventListener('load', () => {
     // Hide loading screen and show main content after a minimum time
@@ -33,18 +50,18 @@ window.addEventListener('load', () => {
         // Remove loading screen after fade out
         setTimeout(() => {
             loadingScreen.style.display = 'none';
+            
+            // Start observing elements for animation
+            const cards = document.querySelectorAll('.skill-card, .experience-card');
+            cards.forEach(card => {
+                observer.observe(card);
+                // Add initial animation class if element is already in viewport
+                if (card.getBoundingClientRect().top < window.innerHeight) {
+                    card.classList.add('animate');
+                }
+            });
         }, 500);
-
-        // Animate skill bars
-        const progressBars = document.querySelectorAll('.progress-bar');
-        progressBars.forEach(bar => {
-            const width = bar.style.width;
-            bar.style.width = '0';
-            setTimeout(() => {
-                bar.style.width = width;
-            }, 300);
-        });
-    }, 1500); // Minimum loading time of 1.5 seconds
+    }, 1500);
 });
 
 // Add smooth scrolling for better user experience
