@@ -519,4 +519,131 @@ body {
         font-size: 2rem;
         margin-bottom: 3rem;
     }
+}
+
+/* Footer Section */
+.footer {
+    background: var(--card-bg);
+    padding: 4rem 0;
+    margin-top: 6rem;
+    border-top: 1px solid var(--card-border);
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4rem;
+}
+
+.footer-info h3 {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+.footer-info p {
+    font-size: 1.1rem;
+    color: var(--text-color);
+    line-height: 1.8;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.footer-info .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+}
+
+.footer-info .contact-item:hover {
+    transform: translateX(5px);
+    color: var(--primary-color);
+}
+
+.footer-info .contact-item i {
+    font-size: 1.2rem;
+    color: var(--primary-color);
+}
+
+.social-links {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.social-links a {
+    color: var(--text-color);
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    color: var(--primary-color);
+    transform: translateY(-3px);
+}
+
+.footer-map {
+    border-radius: 15px;
+    overflow: hidden;
+    height: 250px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--card-border);
+}
+
+.footer-map iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.copyright {
+    text-align: center;
+    padding: 2rem 0;
+    color: var(--text-color);
+    opacity: 0.8;
+    font-size: 0.9rem;
+    border-top: 1px solid var(--card-border);
+    margin-top: 3rem;
+}
+
+/* Responsive Design for Footer */
+@media (max-width: 768px) {
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .footer-map {
+        height: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer {
+        padding: 3rem 0;
+    }
+
+    .footer-info h3 {
+        font-size: 1.5rem;
+    }
+
+    .footer-info p {
+        font-size: 1rem;
+    }
+
+    .social-links {
+        gap: 1rem;
+    }
+
+    .social-links a {
+        font-size: 1.3rem;
+    }
 } 
